@@ -26,6 +26,10 @@ function renderTasks() {
 >
     ${task.completed ? "Mark as Pending" : "Mark as Completed"}
 </button>
+
+               <button class="delete-btn" data-index="${i}">
+    Delete
+</button>
             </div>
         `;
   }

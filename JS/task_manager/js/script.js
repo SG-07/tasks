@@ -30,7 +30,12 @@ taskList.addEventListener("click", function (event) {
         const index = Number(event.target.getAttribute("data-index"));
         tasks[index].completed = !tasks[index].completed;
         renderTasks();
-    }
+    };
+    if(event.target.classList.contains("delete-btn")) {
+        const index = Number(event.target.getAttribute("data-index"));
+        tasks.splice(index, 1);
+        renderTasks();
+    };
 });
 
 console.log("Task Manager Started");
