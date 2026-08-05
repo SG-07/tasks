@@ -1,14 +1,12 @@
 function renderTasks() {
+  const taskList = document.getElementById("task-list");
 
-    const taskList = document.getElementById("task-list");
+  let html = "";
 
-    let html = "";
+  for (let i = 0; i < tasks.length; i++) {
+    const task = tasks[i];
 
-    for (let i = 0; i < tasks.length; i++) {
-
-        const task = tasks[i];
-
-        html += `
+    html += `
             <div class="task ${task.completed ? "completed" : ""}">
                 <h3>${task.title}</h3>
 
@@ -21,9 +19,16 @@ function renderTasks() {
                     <strong>Status:</strong>
                     ${task.completed ? "Completed" : "Pending"}
                 </p>
+
+               <button
+    class="toggle-btn"
+    data-index="${i}"
+>
+    ${task.completed ? "Mark as Pending" : "Mark as Completed"}
+</button>
             </div>
         `;
-    }
+  }
 
-    taskList.innerHTML = html;
+  taskList.innerHTML = html;
 }

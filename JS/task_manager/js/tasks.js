@@ -14,6 +14,7 @@ const sampleTask = {
 
   showStatus() {
     return this.completed ? "Completed" : "Pending";
+    
   },
 
   rename(newTitle) {
