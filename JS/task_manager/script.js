@@ -1,61 +1,102 @@
 console.log("Task Manager Started");
 
-const task = {
+// =========================
+// Single Task (Learning Objects)
+// =========================
+
+const sampleTask = {
     title: "Learn JavaScript Objects",
     description: "Finish Hour 1 practice",
     completed: false,
     priority: "High",
 
-    displayTitle: function () {
+    displayTitle() {
         console.log(this.title);
     },
-    
-    showStatus: function () {
-        if (this.completed) {
-            console.log("Task is completed");
-        } else {
-            console.log("Task is not completed");
-        }
+
+    showStatus() {
+        return this.completed ? "Completed" : "Pending";
     },
 
-    rename: function (newTitle) {
+    rename(newTitle) {
         this.title = newTitle;
     },
 
-    toggleComplete: function () {
+    toggleComplete() {
         this.completed = !this.completed;
+    },
+
+    getSummary() {
+        return `
+Title: ${this.title}
+Description: ${this.description}
+Status: ${this.showStatus()}
+Priority: ${this.priority}
+        `;
     }
 };
 
-// const person = {
-//     name: "Alice",
+console.log("===== Sample Task =====");
+console.log(sampleTask);
+console.log(sampleTask.getSummary());
 
-//     greet: function () {
-//         console.log(this);
-//         console.log(this.name);
-//     }
-// };
+// =========================
+// Multiple Tasks
+// =========================
 
-// const sayHello = person.greet;
+const tasks = [
+    {
+        title: "Learn Objects",
+        completed: false,
+        priority: "High"
+    },
+    {
+        title: "Practice Arrays",
+        completed: true,
+        priority: "Medium"
+    },
+    {
+        title: "Build Task Manager",
+        completed: false,
+        priority: "High"
+    }
+];
 
-// sayHello();
+console.log("===== All Tasks =====");
+console.log(tasks);
 
-//console.log(task);
-// console.log("-------------------------------");
+// =========================
+// Print All Task Titles
+// =========================
 
-// task.title = "Learn JavaScript Objects Deeply";
-// console.log(task.displayTitle());
+console.log("===== Task Titles =====");
 
+for (let i = 0; i < tasks.length; i++) {
+    console.log(tasks[i].title);
+}
 
-// console.log("-------------------------------");
-// console.log(task.showStatus());
+// =========================
+// Print All Tasks with Status
+// =========================
 
-console.log(task.completed);
+console.log("===== Tasks with Status =====");
 
-task.toggleComplete();
+for (let i = 0; i < tasks.length; i++) {
+    console.log(
+        `${tasks[i].title} - ${
+            tasks[i].completed ? "Completed" : "Pending"
+        }`
+    );
+}
 
-console.log(task.completed);
+// =========================
+// Print Only Completed Tasks
+// =========================
 
-task.toggleComplete();
+console.log("===== Completed Tasks =====");
 
-console.log(task.completed);
+for (let i = 0; i < tasks.length; i++) {
+    if (tasks[i].completed) {
+        console.log(tasks[i].title);
+    }
+}
