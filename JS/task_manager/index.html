@@ -10,6 +10,23 @@
   <body>
     <h1>Task Manager</h1>
 
-    <script src="script.js"></script>
+    <input type="text" id="task-input" placeholder="Enter task title" />
+
+    <select id="priority">
+      <option value="High">High</option>
+      <option value="Medium">Medium</option>
+      <option value="Low">Low</option>
+    </select>
+
+    <button id="add-btn">Add Task</button>
+
+    <hr />
+
+    <div id="task-list"></div>
+
+    <!-- scripts section -->
+    <script src="js/tasks.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/script.js"></script>
   </body>
 </html>
